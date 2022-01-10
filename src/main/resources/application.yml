@@ -1,0 +1,8 @@
+retrofit:
+  naver:
+    url: https://openapi.naver.com/
+    client:
+      id: OKy2xFauYpeFR1WYcoJ_
+      secret: q7KrGmcqCg
+  kakao:
+    url:

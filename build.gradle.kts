@@ -16,9 +16,19 @@ repositories {
 }
 
 dependencies {
+
 	implementation("org.springframework.boot:spring-boot-starter")
+	//Use Rest
+	implementation("org.springframework.boot:spring-boot-starter-web")
+
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	// https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+	implementation("com.squareup.retrofit2:retrofit:2.7.2")
+	// https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
+	implementation("com.squareup.retrofit2:converter-gson:2.7.2")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
