@@ -1,6 +1,6 @@
 package com.banana.telescope.retrofit2
 
-import com.banana.telescope.model.PlaceItems
+import com.banana.telescope.model.NaverPlaceQueryResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -16,5 +16,5 @@ interface NaverApis {
         @Query("display") display: Int,
         @Query("start") start: Int,
         @Query("sort") sort: String
-    ): Call<PlaceItems>
+    ): Call<NaverPlaceQueryResponse>
 }

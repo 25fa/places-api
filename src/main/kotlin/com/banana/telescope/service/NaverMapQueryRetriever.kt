@@ -1,6 +1,6 @@
 package com.banana.telescope.service
 
-import com.banana.telescope.model.PlaceItems
+import com.banana.telescope.model.NaverPlaceQueryResponse
 import com.banana.telescope.retrofit2.NaverApis
 import com.banana.telescope.retrofit2.RetrofitClientBuilder
 import org.springframework.beans.factory.annotation.Value
@@ -24,7 +24,7 @@ class NaverMapQueryRetriever {
         apis = RetrofitClientBuilder.build(url)
     }
 
-    fun retrieve(): PlaceItems? {
+    fun retrieve(): NaverPlaceQueryResponse? {
         val call = apis.local(id, secret, "조선옥", 10, 1, "random")
         try {
             val response = call.execute()

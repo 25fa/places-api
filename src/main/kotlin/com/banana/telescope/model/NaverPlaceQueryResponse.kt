@@ -1,6 +1,6 @@
 package com.banana.telescope.model
 
-data class PlaceItems(
+data class NaverPlaceQueryResponse(
     val lastBuildDate: String,
     val total: Int,
     val start: Int,
