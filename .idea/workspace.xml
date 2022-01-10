@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a7285f4-a236-4e22-b523-6a969c0f7588" name="Changes" comment="Initial Project&#9;compileOnly 'org.projectlombok:lombok'&#10;               &#9;annotationProcessor 'org.projectlombok:lombok'">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/controller/KeywordRecommender.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/KakaoApis.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoMapQueryRetriever.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/PlaceItems.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceQueryResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/controller/KeywordSearcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/controller/KeywordSearcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceQueryResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceResponse.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/NaverApis.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/NaverApis.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverMapQueryRetriever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverMapQueryRetriever.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverMapQueryRetriever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverPlaceRetriever.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +67,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="23UCXSOuu2oDEhiyfEZU0rb3s6E" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -313,16 +302,5 @@
     <MESSAGE value="Naver apis rest call (using retrofit2)" />
     <MESSAGE value="gitignore condition add intellij" />
     <option name="LAST_COMMIT_MESSAGE" value="gitignore condition add intellij" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/controller/KeywordSearcher.kt</url>
-          <line>16</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

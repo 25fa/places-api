@@ -1,13 +1,13 @@
 package com.banana.telescope.model
 
-data class NaverPlaceQueryResponse(
+data class NaverPlaceResponse(
     val lastBuildDate: String,
     val total: Int,
     val start: Int,
     val display: Int,
-    val items :List<Place>
+    val items :List<Item>
 ){
-    data class Place(
+    data class Item(
         val title: String,
         val link: String,
         val category: String,
