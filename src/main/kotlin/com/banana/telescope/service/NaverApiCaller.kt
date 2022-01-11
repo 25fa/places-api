@@ -26,8 +26,8 @@ class NaverApiCaller {
         apis = RetrofitClientBuilder.build(url)
     }
 
-    fun local(): NaverPlaceResponse? {
-        val call = apis.local(id, secret, "조선옥", 10, 1, "random")
+    fun search(keyword: String): NaverPlaceResponse? {
+        val call = apis.search(id, secret, keyword, 5, 1, "random")
         try {
             val response = call.execute()
             if (response.isSuccessful) {

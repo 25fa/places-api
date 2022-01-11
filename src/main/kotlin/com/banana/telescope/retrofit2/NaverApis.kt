@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface NaverApis {
 
     @GET("v1/search/local.json")
-    fun local(
+    fun search(
         @Header("X-Naver-Client-Id") id: String,
         @Header("X-Naver-Client-Secret") secret: String,
         @Query("query") query: String,
