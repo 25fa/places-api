@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a7285f4-a236-4e22-b523-6a969c0f7588" name="Changes" comment="Initial Project&#9;compileOnly 'org.projectlombok:lombok'&#10;               &#9;annotationProcessor 'org.projectlombok:lombok'">
+    <list default="true" id="8a7285f4-a236-4e22-b523-6a969c0f7588" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/KakaoPlaceResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/KakaoTranscoordResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/KakaoApis.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoApiCaller.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/TelescopeApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/TelescopeApplication.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/controller/KeywordSearcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/controller/KeywordSearcher.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceQueryResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/NaverApis.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/NaverApis.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverMapQueryRetriever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverPlaceRetriever.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/NaverPlaceResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverPlaceRetriever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverApiCaller.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +64,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -95,6 +104,7 @@
       <recent name="com.banana.telescope.model" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.banana.telescope.model" />
       <recent name="com.banana.telescope.service" />
       <recent name="com.banana.telescope.retrofit2" />
       <recent name="com.banana.telescope.controller" />
@@ -278,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641820615609</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Rename NaverPlaceQueryResponse -&gt; NaverPlaceResponse&#10;Rename NaverMapQueryRetriever -&gt; NaverPlaceRetriever">
+      <created>1641822755611</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641822755611</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +318,24 @@
     <MESSAGE value="Initial Project" />
     <MESSAGE value="Naver apis rest call (using retrofit2)" />
     <MESSAGE value="gitignore condition add intellij" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore condition add intellij" />
+    <MESSAGE value="Initial Project&#9;compileOnly 'org.projectlombok:lombok'&#10;               &#9;annotationProcessor 'org.projectlombok:lombok'" />
+    <MESSAGE value="Rename NaverPlaceQueryResponse -&gt; NaverPlaceResponse&#10;Rename NaverMapQueryRetriever -&gt; NaverPlaceRetriever" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename NaverPlaceQueryResponse -&gt; NaverPlaceResponse&#10;Rename NaverMapQueryRetriever -&gt; NaverPlaceRetriever" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoApiCaller.kt</url>
+          <line>28</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoApiCaller.kt</url>
+          <line>30</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

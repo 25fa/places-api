@@ -5,4 +5,7 @@ retrofit:
       id: OKy2xFauYpeFR1WYcoJ_
       secret: q7KrGmcqCg
   kakao:
-    url:
+    url: https://dapi.kakao.com/
+    client:
+      key: b637d7bc7cb7cdc6baebe0a8d996b923
+

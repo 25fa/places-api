@@ -9,11 +9,13 @@ import java.io.IOException
 import javax.annotation.PostConstruct
 
 @Service
-class NaverPlaceRetriever {
+class NaverApiCaller {
     @Value("\${retrofit.naver.url}")
     lateinit var url: String
+
     @Value("\${retrofit.naver.client.id}")
     lateinit var id: String
+
     @Value("\${retrofit.naver.client.secret}")
     lateinit var secret: String
 
@@ -24,7 +26,7 @@ class NaverPlaceRetriever {
         apis = RetrofitClientBuilder.build(url)
     }
 
-    fun retrieve(): NaverPlaceResponse? {
+    fun local(): NaverPlaceResponse? {
         val call = apis.local(id, secret, "조선옥", 10, 1, "random")
         try {
             val response = call.execute()

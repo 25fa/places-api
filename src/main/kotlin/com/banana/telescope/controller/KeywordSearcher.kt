@@ -1,6 +1,6 @@
 package com.banana.telescope.controller
 
-import com.banana.telescope.service.NaverPlaceRetriever
+import com.banana.telescope.service.KakaoApiCaller
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 class KeywordSearcher(
 ) {
     @Autowired
-    lateinit var naverPlaceRetriever: NaverPlaceRetriever
+    lateinit var naverPlaceRetriever: KakaoApiCaller
 
     @GetMapping("/v1/place/search")
     fun getTotalProductList() {
