@@ -1,4 +1,4 @@
-package com.banana.telescope.service
+package com.banana.telescope.worker
 
 import com.banana.telescope.model.KakaoPlaceResponse
 import com.banana.telescope.model.KakaoTranscoordResponse
@@ -12,10 +12,10 @@ import javax.annotation.PostConstruct
 @Service
 class KakaoApiCaller {
     @Value("\${retrofit.kakao.url}")
-    lateinit var url: String
+    private lateinit var url: String
 
     @Value("\${retrofit.kakao.client.key}")
-    lateinit var key: String
+    private lateinit var key: String
 
     private lateinit var apis: KakaoApis
     private lateinit var apiKey: String

@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a7285f4-a236-4e22-b523-6a969c0f7588" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/KakaoPlaceResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/KakaoTranscoordResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/KakaoApis.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoApiCaller.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/NaverApis.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/retrofit2/NaverApis.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/model/BasePlaceResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoPlaceGetter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverPlaceGetter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoApiCaller.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/KakaoApiCaller.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/MapQueryGetter.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverApiCaller.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/banana/telescope/service/NaverApiCaller.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,8 +98,8 @@
       <recent name="com.banana.telescope.model" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
-      <recent name="com.banana.telescope.model" />
       <recent name="com.banana.telescope.service" />
+      <recent name="com.banana.telescope.model" />
       <recent name="com.banana.telescope.retrofit2" />
       <recent name="com.banana.telescope.controller" />
     </key>
@@ -295,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641873681654</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Rename api: local -&gt; search">
+      <created>1641874062591</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1641874062591</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Rest call to KakaoApi">
+      <created>1641874119850</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641874119850</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +336,9 @@
     <MESSAGE value="Initial Project&#9;compileOnly 'org.projectlombok:lombok'&#10;               &#9;annotationProcessor 'org.projectlombok:lombok'" />
     <MESSAGE value="Rename NaverPlaceQueryResponse -&gt; NaverPlaceResponse&#10;Rename NaverMapQueryRetriever -&gt; NaverPlaceRetriever" />
     <MESSAGE value="Rename NaverPlaceRetriever.kt -&gt; NaverApiCaller.kt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename NaverPlaceRetriever.kt -&gt; NaverApiCaller.kt" />
+    <MESSAGE value="Rename api: local -&gt; search" />
+    <MESSAGE value="Rest call to KakaoApi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rest call to KakaoApi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

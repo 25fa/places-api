@@ -1,4 +1,4 @@
-package com.banana.telescope.service
+package com.banana.telescope.worker
 
 import com.banana.telescope.model.NaverPlaceResponse
 import com.banana.telescope.retrofit2.NaverApis
@@ -11,13 +11,13 @@ import javax.annotation.PostConstruct
 @Service
 class NaverApiCaller {
     @Value("\${retrofit.naver.url}")
-    lateinit var url: String
+    private lateinit var url: String
 
     @Value("\${retrofit.naver.client.id}")
-    lateinit var id: String
+    private lateinit var id: String
 
     @Value("\${retrofit.naver.client.secret}")
-    lateinit var secret: String
+    private lateinit var secret: String
 
     private lateinit var apis: NaverApis
 
