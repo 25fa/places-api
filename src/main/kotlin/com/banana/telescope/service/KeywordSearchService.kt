@@ -1,5 +1,6 @@
 package com.banana.telescope.service
 
+import com.banana.telescope.repository.RedisRepository
 import com.banana.telescope.model.BasePlaceResponse
 import com.banana.telescope.worker.KakaoPlaceGetter
 import com.banana.telescope.worker.NaverPlaceGetter
@@ -14,11 +15,15 @@ class KeywordSearchService(
     @Autowired
     private val kakaoPlaceGetter: KakaoPlaceGetter,
     @Autowired
-    private val naverPlaceGetter: NaverPlaceGetter
+    private val naverPlaceGetter: NaverPlaceGetter,
+    @Autowired
+    private val redisRepository: RedisRepository
 ) {
     private val similarityWorker = SimilarityWorker()
 
     fun search(keyword: String): BasePlaceResponse {
+        redisRepository.insertOrIncrease(keyword)
+
         val naverPlace = naverPlaceGetter.get(keyword)
         val remainCount = BASE_COUNT - naverPlace.total
         val kakaoPlace = kakaoPlaceGetter.get(keyword, remainCount)

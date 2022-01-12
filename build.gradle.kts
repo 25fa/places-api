@@ -21,6 +21,9 @@ dependencies {
 	//Use Rest
 	implementation("org.springframework.boot:spring-boot-starter-web")
 
+	//Use Redis
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 

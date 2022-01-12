@@ -9,3 +9,7 @@ retrofit:
     client:
       key: b637d7bc7cb7cdc6baebe0a8d996b923
 
+spring:
+  redis:
+    host: localhost
+    port: 6379
