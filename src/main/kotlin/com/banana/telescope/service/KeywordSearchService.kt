@@ -81,26 +81,20 @@ class KeywordSearchService(
     }
 
     private fun String.getRoad(): String? {
-        val regex = "([가-힣0-9]{1,8}(길|로) ([0-9-]{0,5})?)"
+        val regex = "([가-힣0-9]{1,8}([길로]) ([0-9-]{0,5})?)"
         val matcher = Pattern.compile(regex).matcher(this)
         while (matcher.find()) {
             return matcher.group(1)
-
-            if (matcher.group(1) == null) break;
         }
-
         return null
     }
 
     private fun String.getTown(): String? {
-        val regex = "([가-힣0-9]{1,8}(동|리) ([0-9-]{0,5})?)"
+        val regex = "([가-힣0-9]{1,8}([동리]) ([0-9-]{0,5})?)"
         val matcher = Pattern.compile(regex).matcher(this)
         while (matcher.find()) {
             return matcher.group(1)
-
-            if (matcher.group(1) == null) break;
         }
-
         return null
     }
 
