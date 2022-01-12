@@ -21,20 +21,21 @@ class NaverPlaceGetter(
         throw Exception()
     }
 
-    private fun NaverPlaceResponse.convert() : BasePlaceResponse {
+    private fun NaverPlaceResponse.convert(): BasePlaceResponse {
         val documents = mutableListOf<BasePlaceResponse.Document>()
         this.items.forEach {
             val coordinate = toWGS84(it.x.toDouble(), it.y.toDouble())
             documents.add(
                 BasePlaceResponse.Document(
-                name = it.name.reformatName(),
-                url = it.url,
-                phone = it.phone,
-                address = it.address,
-                roadAddress = it.roadAddress,
-                x = coordinate.first,
-                y = coordinate.second
-            ))
+                    name = it.name.reformatName(),
+                    url = it.url,
+                    phone = it.phone,
+                    address = reformatState(it.address),
+                    roadAddress = reformatState(it.roadAddress),
+                    x = coordinate.first,
+                    y = coordinate.second
+                )
+            )
         }
 
         return BasePlaceResponse(
@@ -53,12 +54,19 @@ class NaverPlaceGetter(
         throw Exception()
     }
 
-    private fun String.reformatState(): String {
-        return this.replace("(특별|자치|광역|시|도|청|라|상)".to)
-
+    private fun reformatState(address: String): String {
+        return buildString {
+            address.split(" ").forEachIndexed { index, value ->
+                if (index == 0) {
+                    append(value.replace("(특별|자치|광역|시|도|청|라|상)".toRegex(), ""))
+                } else {
+                    append(" $value")
+                }
+            }
+        }
     }
 
-    private fun String.reformatName() : String{
+    private fun String.reformatName(): String {
         return this.replace("<b>", "").replace("</b>", "")
     }
 }

@@ -19,19 +19,20 @@ class KakaoPlaceGetter(
         throw Exception()
     }
 
-    private fun KakaoPlaceResponse.convert() : BasePlaceResponse {
+    private fun KakaoPlaceResponse.convert(): BasePlaceResponse {
         val documents = mutableListOf<BasePlaceResponse.Document>()
         this.documents.forEach {
             documents.add(
                 BasePlaceResponse.Document(
-                name = it.name,
-                url = it.url,
-                phone = it.phone,
-                address = it.address,
-                roadAddress = it.roadAddress,
-                x = it.x.toDouble(),
-                y = it.y.toDouble()
-            ))
+                    name = it.name,
+                    url = it.url,
+                    phone = it.phone,
+                    address = it.address,
+                    roadAddress = it.roadAddress,
+                    x = it.x.toDouble(),
+                    y = it.y.toDouble()
+                )
+            )
         }
 
         return BasePlaceResponse(

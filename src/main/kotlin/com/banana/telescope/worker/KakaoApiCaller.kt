@@ -26,7 +26,7 @@ class KakaoApiCaller {
         apiKey = "KakaoAK $key"
     }
 
-    fun search(keyword:String, size: Int): KakaoPlaceResponse? {
+    fun search(keyword: String, size: Int): KakaoPlaceResponse? {
         val call = apis.search(apiKey, keyword, 1, size)
         try {
             val response = call.execute()

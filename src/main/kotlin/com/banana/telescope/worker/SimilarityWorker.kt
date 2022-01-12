@@ -9,7 +9,7 @@ class SimilarityWorker {
             shorter = source
         }
         val longerLength = longer.length
-        return if (longerLength == 0){
+        return if (longerLength == 0) {
             1.0
         } else {
             (longerLength - editDistance(longer, shorter)) / longerLength.toDouble()
