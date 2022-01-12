@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class KakaoPlaceGetter(
     @Autowired
-    val kakaoApiCaller: KakaoApiCaller,
+    private val kakaoApiCaller: KakaoApiCaller,
 ) {
     fun get(keyword: String, size: Int): BasePlaceResponse {
         val kakaoPlaceResponse = kakaoApiCaller.search(keyword, size)

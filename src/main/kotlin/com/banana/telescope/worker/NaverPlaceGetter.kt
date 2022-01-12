@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service
 @Service
 class NaverPlaceGetter(
     @Autowired
-    val kakaoApiCaller: KakaoApiCaller,
+    private val kakaoApiCaller: KakaoApiCaller,
     @Autowired
-    val naverApiCaller: NaverApiCaller
+    private val naverApiCaller: NaverApiCaller
 ) {
     fun get(keyword: String): BasePlaceResponse {
         val naverPlaceResponse = naverApiCaller.search(keyword)
@@ -53,12 +53,12 @@ class NaverPlaceGetter(
         throw Exception()
     }
 
+    private fun String.reformatState(): String {
+        return this.replace("(특별|자치|광역|시|도|청|라|상)".to)
+
+    }
+
     private fun String.reformatName() : String{
         return this.replace("<b>", "").replace("</b>", "")
     }
-
-    companion object{
-        private const val BASE_COUNT = 10
-    }
-
 }

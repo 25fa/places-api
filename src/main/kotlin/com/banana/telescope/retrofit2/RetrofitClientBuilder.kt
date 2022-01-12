@@ -6,7 +6,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.util.concurrent.TimeUnit
 
-
 class RetrofitClientBuilder {
     companion object {
         inline fun <reified T> build(url: String): T {
