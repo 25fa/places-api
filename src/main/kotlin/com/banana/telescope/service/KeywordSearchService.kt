@@ -18,7 +18,7 @@ class KeywordSearchService(
 ) {
     private val similarityWorker = SimilarityWorker()
 
-    fun search(keyword: String){
+    fun search(keyword: String): BasePlaceResponse {
         val naverPlace = naverPlaceGetter.get(keyword)
         val remainCount = BASE_COUNT - naverPlace.total
         val kakaoPlace = kakaoPlaceGetter.get(keyword, remainCount)
@@ -32,17 +32,20 @@ class KeywordSearchService(
             }?.let {
                 resultDocumentList.add(kakaoDocument)
                 naverDocumentList.remove(it)
-            }?: let {
+            } ?: let {
                 kakaoDocumentList.add(kakaoDocument)
             }
         }
         resultDocumentList.addAll(kakaoDocumentList)
         resultDocumentList.addAll(naverDocumentList)
-        println(resultDocumentList)
+        return BasePlaceResponse(
+            total = resultDocumentList.size,
+            documents = resultDocumentList
+        )
     }
 
-    fun BasePlaceResponse.Document.compare(target: BasePlaceResponse.Document): Boolean{
-        if(this.name.compareName(target.name)) {
+    private fun BasePlaceResponse.Document.compare(target: BasePlaceResponse.Document): Boolean {
+        if (this.name.compareName(target.name)) {
             if (this.address.compareAddress(target.address)) {
                 return comparePosition(this.x, this.y, target.x, target.y)
             } else {
@@ -55,10 +58,10 @@ class KeywordSearchService(
         return false
     }
 
-    private fun String.compareRoadAddress(target: String): Boolean{
-        this.getRoad()?.let {sourceAddress ->
-            target.getRoad()?.let {targetAddress ->
-                if(sourceAddress == targetAddress){
+    private fun String.compareRoadAddress(target: String): Boolean {
+        this.getRoad()?.let { sourceAddress ->
+            target.getRoad()?.let { targetAddress ->
+                if (sourceAddress == targetAddress) {
                     return true
                 }
             }
@@ -66,10 +69,10 @@ class KeywordSearchService(
         return false
     }
 
-    private fun String.compareAddress(target: String): Boolean{
-        this.getTown()?.let {sourceAddress ->
-            target.getTown()?.let {targetAddress ->
-                if(sourceAddress == targetAddress){
+    private fun String.compareAddress(target: String): Boolean {
+        this.getTown()?.let { sourceAddress ->
+            target.getTown()?.let { targetAddress ->
+                if (sourceAddress == targetAddress) {
                     return true
                 }
             }
@@ -77,7 +80,7 @@ class KeywordSearchService(
         return false
     }
 
-    private fun String.getRoad():String?{
+    private fun String.getRoad(): String? {
         val regex = "([가-힣0-9]{1,8}(길|로) ([0-9-]{0,5})?)"
         val matcher = Pattern.compile(regex).matcher(this)
         while (matcher.find()) {
@@ -89,7 +92,7 @@ class KeywordSearchService(
         return null
     }
 
-    private fun String.getTown():String?{
+    private fun String.getTown(): String? {
         val regex = "([가-힣0-9]{1,8}(동|리) ([0-9-]{0,5})?)"
         val matcher = Pattern.compile(regex).matcher(this)
         while (matcher.find()) {
@@ -102,23 +105,23 @@ class KeywordSearchService(
     }
 
 
-    private fun String.compareName(target: String): Boolean{
-        if(similarityWorker.similarity(this, target) > NAME_SIMILARITY_RATE){
+    private fun String.compareName(target: String): Boolean {
+        if (similarityWorker.similarity(this, target) > NAME_SIMILARITY_RATE) {
             return true
         }
         return false
     }
 
-    private fun comparePosition(sourceX: Double, sourceY: Double, targetX: Double, targetY:Double) : Boolean{
-        if(abs(sourceX - targetX) < MARGIN_OF_ERROR){
-            if(abs(sourceY - targetY) < MARGIN_OF_ERROR){
+    private fun comparePosition(sourceX: Double, sourceY: Double, targetX: Double, targetY: Double): Boolean {
+        if (abs(sourceX - targetX) < MARGIN_OF_ERROR) {
+            if (abs(sourceY - targetY) < MARGIN_OF_ERROR) {
                 return true
             }
         }
         return false
     }
 
-    companion object{
+    companion object {
         private const val BASE_COUNT = 10
         private const val NAME_SIMILARITY_RATE = 0.6
         private const val MARGIN_OF_ERROR = 0.0003
