@@ -14,10 +14,12 @@ class RedisRepository(
         val result = mutableListOf<RecommendedKeyword>()
         val zSetOperations = redisTemplate.opsForZSet()
         zSetOperations.reverseRangeWithScores(REDIS_KEY, 0, 10)?.forEach {
-            result.add(RecommendedKeyword(
-                keyword = it.value!!,
-                score = it.score!!.toInt()
-            ))
+            result.add(
+                RecommendedKeyword(
+                    keyword = it.value!!,
+                    score = it.score!!.toInt()
+                )
+            )
         }
         return result
     }
@@ -27,7 +29,7 @@ class RedisRepository(
         zSetOperations.incrementScore(REDIS_KEY, keyword, DELTA)
     }
 
-    companion object{
+    companion object {
         private const val REDIS_KEY = "recommended_keyword"
         private const val DELTA = 1.0
 
