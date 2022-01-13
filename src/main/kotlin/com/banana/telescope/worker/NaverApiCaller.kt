@@ -1,11 +1,11 @@
 package com.banana.telescope.worker
 
+import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.NaverPlaceResponse
 import com.banana.telescope.retrofit2.NaverApis
 import com.banana.telescope.retrofit2.RetrofitClientBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import java.io.IOException
 import javax.annotation.PostConstruct
 
 @Service
@@ -33,8 +33,8 @@ class NaverApiCaller {
             if (response.isSuccessful) {
                 return response.body()
             }
-        } catch (e: IOException) {
-            print(e.message)
+        } catch (e: Exception) {
+            throw TelescopeRuntimeException.RemoteServerDownException()
         }
         return null
     }

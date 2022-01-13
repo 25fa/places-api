@@ -1,5 +1,6 @@
 package com.banana.telescope.worker
 
+import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.NaverPlaceResponse
 import com.banana.telescope.model.PlaceDocument
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,12 +14,15 @@ class NaverPlaceGetter(
     private val naverApiCaller: NaverApiCaller
 ) {
     fun get(keyword: String): List<PlaceDocument> {
-        val naverPlaceResponse = naverApiCaller.search(keyword)
-        if (naverPlaceResponse != null) {
-            return naverPlaceResponse.convert()
+        try {
+            val naverPlaceResponse = naverApiCaller.search(keyword)
+            if (naverPlaceResponse != null) {
+                return naverPlaceResponse.convert()
+            }
+            return listOf()
+        } catch (e: TelescopeRuntimeException.RemoteServerDownException){
+            throw e
         }
-        //todo
-        throw Exception()
     }
 
     private fun NaverPlaceResponse.convert(): List<PlaceDocument> {

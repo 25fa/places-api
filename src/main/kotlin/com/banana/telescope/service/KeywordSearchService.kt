@@ -1,12 +1,15 @@
 package com.banana.telescope.service
 
 import com.banana.telescope.entity.PlaceEntity
+import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.PlaceDocument
 import com.banana.telescope.repository.PlaceCacheRepository
 import com.banana.telescope.repository.RecommendRepository
 import com.banana.telescope.worker.KakaoPlaceGetter
 import com.banana.telescope.worker.NaverPlaceGetter
 import com.banana.telescope.worker.SimilarityWorker
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.regex.Pattern
@@ -24,6 +27,7 @@ class KeywordSearchService(
     private val placeCacheRepository: PlaceCacheRepository
 ) {
     private val similarityWorker = SimilarityWorker()
+    private val logger: Logger = LoggerFactory.getLogger(this.javaClass)
 
     fun search(keyword: String): List<PlaceDocument> {
         recommendRepository.insertOrIncrease(keyword)
@@ -32,30 +36,42 @@ class KeywordSearchService(
             return cachedPlaces.documents
         }
 
-        val naverDocumentList = naverPlaceGetter.get(keyword) as MutableList
-        val remainCount = BASE_COUNT - naverDocumentList.size
-
-        val resultDocumentList = mutableListOf<PlaceDocument>()
-        val kakaoDocumentList = mutableListOf<PlaceDocument>()
-
-
-        kakaoPlaceGetter.get(keyword, remainCount).forEach { kakaoDocument ->
-            naverDocumentList.find { naverDocument ->
-                naverDocument.compare(kakaoDocument)
-            }?.let {
-                resultDocumentList.add(kakaoDocument)
-                naverDocumentList.remove(it)
-            } ?: let {
-                kakaoDocumentList.add(kakaoDocument)
+        try {
+            val naverDocumentList = naverPlaceGetter.get(keyword) as MutableList
+            val remainCount = BASE_COUNT - naverDocumentList.size
+            val resultDocumentList = mutableListOf<PlaceDocument>()
+            val kakaoDocumentList = mutableListOf<PlaceDocument>()
+            try {
+                kakaoPlaceGetter.get(keyword, remainCount).forEach { kakaoDocument ->
+                    naverDocumentList.find { naverDocument ->
+                        naverDocument.compare(kakaoDocument)
+                    }?.let {
+                        resultDocumentList.add(kakaoDocument)
+                        naverDocumentList.remove(it)
+                    } ?: let {
+                        kakaoDocumentList.add(kakaoDocument)
+                    }
+                }
+                resultDocumentList.addAll(kakaoDocumentList)
+                resultDocumentList.addAll(naverDocumentList)
+                placeCacheRepository.save(PlaceEntity(
+                    keyword = keyword,
+                    documents = resultDocumentList
+                ))
+                return resultDocumentList
+            } catch (e: TelescopeRuntimeException.RemoteServerDownException){
+                logger.warn("Kakao Api is down.")
+                return naverDocumentList
+            }
+        } catch (e: TelescopeRuntimeException.RemoteServerDownException){
+            try {
+                logger.warn("Naver Api is down.")
+                return kakaoPlaceGetter.get(keyword, BASE_COUNT)
+            } catch (e: TelescopeRuntimeException.RemoteServerDownException){
+                throw e
             }
         }
-        resultDocumentList.addAll(kakaoDocumentList)
-        resultDocumentList.addAll(naverDocumentList)
-        placeCacheRepository.save(PlaceEntity(
-            keyword = keyword,
-            documents = resultDocumentList
-        ))
-        return resultDocumentList
+
     }
 
     private fun PlaceDocument.compare(target: PlaceDocument): Boolean {

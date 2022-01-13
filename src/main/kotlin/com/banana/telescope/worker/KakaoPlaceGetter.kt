@@ -1,7 +1,10 @@
 package com.banana.telescope.worker
 
+import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.KakaoPlaceResponse
 import com.banana.telescope.model.PlaceDocument
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -10,13 +13,18 @@ class KakaoPlaceGetter(
     @Autowired
     private val kakaoApiCaller: KakaoApiCaller,
 ) {
+
     fun get(keyword: String, size: Int): List<PlaceDocument> {
-        val kakaoPlaceResponse = kakaoApiCaller.search(keyword, size)
-        if (kakaoPlaceResponse != null) {
-            return kakaoPlaceResponse.convert()
+        try {
+            val kakaoPlaceResponse = kakaoApiCaller.search(keyword, size)
+            if (kakaoPlaceResponse != null) {
+                return kakaoPlaceResponse.convert()
+            }
+            return listOf()
+        } catch (e: TelescopeRuntimeException.RemoteServerDownException){
+            throw e
         }
-        //todo
-        throw Exception()
+
     }
 
     private fun KakaoPlaceResponse.convert(): List<PlaceDocument> {
