@@ -25,7 +25,7 @@
 2022-01-13 09:38:20.166  INFO 189 --- [           main] c.b.telescope.TelescopeApplicationKt     : Started TelescopeApplicationKt in 8.957 seconds (JVM running for 9.563)
 ```
 
-## Test
+
 
 - 장소 검색
 ```
@@ -34,4 +34,21 @@
 - 검색 키워드 목록
 ```
   % curl --location --request GET 'localhost:8080/v1/place/search/recommend'
+```
+
+## Liblary
+
+- Rest 서비스를 사용하기 위해서 추가
+```
+	implementation("org.springframework.boot:spring-boot-starter-web")
+```
+
+- Redis Database를 사용하기 위해서 추가
+  ```
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+```
+- http call을 쉽게하기 위해서 추가
+```
+	implementation("com.squareup.retrofit2:retrofit:2.7.2")
+	implementation("com.squareup.retrofit2:converter-gson:2.7.2")
 ```
