@@ -36,6 +36,11 @@
   % curl --location --request GET 'localhost:8080/v1/place/search/recommend'
 ```
 
+- Bulk Test
+```
+  HttpSearchTest.http 파일로 대량 입력하고 HttpRecommendTest.http파일로 추천검색어를 확인할수 있음.
+```
+
 ## Liblary
 
 - Rest 서비스를 사용하기 위해서 추가
@@ -50,6 +55,6 @@
 
 - http call을 쉽게하기 위해서 추가 : 가독성이 좋은 코드를 작성할 수 있으며 구현이 쉬움.
 ```
-  implementation("com.squareup.retrofit2:retrofit:2.7.2")
-  implementation("com.squareup.retrofit2:converter-gson:2.7.2")
+  implementation("com.squareup.retrofit2:retrofit:2.9.0")
+  implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 ```
