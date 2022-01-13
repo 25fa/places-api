@@ -13,7 +13,7 @@ class RedisRepository(
     fun selectTop10(): List<RecommendedKeyword> {
         val result = mutableListOf<RecommendedKeyword>()
         val zSetOperations = redisTemplate.opsForZSet()
-        zSetOperations.reverseRangeWithScores(REDIS_KEY, 0, 10)?.forEach {
+        zSetOperations.reverseRangeWithScores(REDIS_KEY, 0, 9)?.forEach {
             result.add(
                 RecommendedKeyword(
                     keyword = it.value!!,
