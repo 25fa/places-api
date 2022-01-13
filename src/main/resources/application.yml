@@ -11,5 +11,5 @@ retrofit:
 
 spring:
   redis:
-    host: localhost
+    host: redis-server
     port: 6379
