@@ -8,7 +8,6 @@ import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import org.junit.Assert
 import org.junit.Test
-import org.springframework.beans.factory.annotation.Autowired
 
 class NaverPlaceGetterTest {
     @InjectMockKs
