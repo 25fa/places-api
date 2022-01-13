@@ -5,7 +5,7 @@
 ```
   % docker-compose up -d
 ```
-  2. docker가 서버가 부팅되도록 충분히 대기 (아래 명령어로 로그를 확인)
+  2. docker가 서버가 부팅되도록 충분히(5분정도) 대기 (아래 명령어로 로그를 확인)
 ```
   % docker logs spring-app
 ```
