@@ -1,0 +1,170 @@
+GET http://localhost:8080/v1/place/search?keyword=조선옥
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조선옥
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조선옥
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조선옥
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조선옥
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조선옥
+Accept: application/json
+###
+
+### 조선옥 6회
+
+GET http://localhost:8080/v1/place/search?keyword=조선
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조선
+Accept: application/json
+###
+
+### 조선 2회
+
+GET http://localhost:8080/v1/place/search?keyword=조
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=조
+Accept: application/json
+###
+
+### 조 4회
+
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=감자
+Accept: application/json
+###
+
+### 감자 8회
+
+GET http://localhost:8080/v1/place/search?keyword=은행
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=은행
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=은행
+Accept: application/json
+###
+
+### 은행 3회
+
+GET http://localhost:8080/v1/place/search?keyword=세차
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=세차
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=세차
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=세차
+Accept: application/json
+###
+
+### 세차 4회
+
+GET http://localhost:8080/v1/place/search?keyword=카카오 프렌즈
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=카카오 프렌즈
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=카카오 프렌즈
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=카카오 프렌즈
+Accept: application/json
+###
+
+### 카카오 프렌즈 4회
+
+GET http://localhost:8080/v1/place/search?keyword=경찰
+Accept: application/json
+###
+GET http://localhost:8080/v1/place/search?keyword=경찰
+Accept: application/json
+###
+
+### 경찰 2회
+
+GET http://localhost:8080/v1/place/search?keyword=테슬라
+Accept: application/json
+###
+
+GET http://localhost:8080/v1/place/search?keyword=테슬라
+Accept: application/json
+###
+
+### 테슬라 2회
+
+GET http://localhost:8080/v1/place/search?keyword=과일
+Accept: application/json
+###
+
+GET http://localhost:8080/v1/place/search?keyword=과일
+Accept: application/json
+###
+
+### 과일 2회
+
+GET http://localhost:8080/v1/place/search?keyword=스타벅스
+Accept: application/json
+###
+
+GET http://localhost:8080/v1/place/search?keyword=스타벅스
+Accept: application/json
+###
+
+### 스타벅스 2회
+
+GET http://localhost:8080/v1/place/search?keyword=커피
+Accept: application/json
+###
+
+GET http://localhost:8080/v1/place/search?keyword=커피
+Accept: application/json
+###
+
+### 커피 2회
+
+GET http://localhost:8080/v1/place/search?keyword=삼성
+Accept: application/json
+###
+
+GET http://localhost:8080/v1/place/search?keyword=애플
+Accept: application/json
+###

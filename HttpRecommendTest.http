@@ -1,0 +1,4 @@
+GET http://localhost:8080/v1/place/search/recommend
+Accept: application/json
+
+###
