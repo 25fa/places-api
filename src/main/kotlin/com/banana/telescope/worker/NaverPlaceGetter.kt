@@ -58,7 +58,7 @@ class NaverPlaceGetter(
     }
 
     private fun reformatState(address: String): String {
-        return buildString {
+        val result = buildString {
             address.split(" ").forEachIndexed { index, value ->
                 if (index == 0) {
                     append(value.replace("(특별|자치|광역|시|도|청|라|상)".toRegex(), ""))
@@ -67,6 +67,7 @@ class NaverPlaceGetter(
                 }
             }
         }
+        return result.replace(" {2,}".toRegex(), " ")
     }
 
     private fun String.reformatName(): String {
