@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Repository
 
 @Repository
-class RedisRepository(
+class RecommendRepository(
     @Autowired
     private val redisTemplate: StringRedisTemplate
 ) {

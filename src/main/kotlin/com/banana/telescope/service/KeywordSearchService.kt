@@ -1,7 +1,9 @@
 package com.banana.telescope.service
 
+import com.banana.telescope.entity.PlaceEntity
 import com.banana.telescope.model.PlaceDocument
-import com.banana.telescope.repository.RedisRepository
+import com.banana.telescope.repository.PlaceCacheRepository
+import com.banana.telescope.repository.RecommendRepository
 import com.banana.telescope.worker.KakaoPlaceGetter
 import com.banana.telescope.worker.NaverPlaceGetter
 import com.banana.telescope.worker.SimilarityWorker
@@ -17,12 +19,18 @@ class KeywordSearchService(
     @Autowired
     private val naverPlaceGetter: NaverPlaceGetter,
     @Autowired
-    private val redisRepository: RedisRepository
+    private val recommendRepository: RecommendRepository,
+    @Autowired
+    private val placeCacheRepository: PlaceCacheRepository
 ) {
     private val similarityWorker = SimilarityWorker()
 
     fun search(keyword: String): List<PlaceDocument> {
-        redisRepository.insertOrIncrease(keyword)
+        recommendRepository.insertOrIncrease(keyword)
+        val cachedPlaces = placeCacheRepository.findById(keyword).orElse(null)
+        if(cachedPlaces != null){
+            return cachedPlaces.documents
+        }
 
         val naverDocumentList = naverPlaceGetter.get(keyword) as MutableList
         val remainCount = BASE_COUNT - naverDocumentList.size
@@ -43,6 +51,10 @@ class KeywordSearchService(
         }
         resultDocumentList.addAll(kakaoDocumentList)
         resultDocumentList.addAll(naverDocumentList)
+        placeCacheRepository.save(PlaceEntity(
+            keyword = keyword,
+            documents = resultDocumentList
+        ))
         return resultDocumentList
     }
 
