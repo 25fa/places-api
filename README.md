@@ -43,12 +43,12 @@
   implementation("org.springframework.boot:spring-boot-starter-web")
 ```
 
-- Redis Database를 사용하기 위해서 추가
+- Redis Database를 사용하기 위해서 추가 : 대용량 처리를 위해서 rest call을 캐시 하고(i) 검색어 횟수 증가가 io가 빈번하기(ii) 때문에 사용함.
 ```
   implementation("org.springframework.boot:spring-boot-starter-data-redis")
 ```
 
-- http call을 쉽게하기 위해서 추가
+- http call을 쉽게하기 위해서 추가 : 가독성이 좋은 코드를 작성할 수 있으며 구현이 쉬움.
 ```
   implementation("com.squareup.retrofit2:retrofit:2.7.2")
   implementation("com.squareup.retrofit2:converter-gson:2.7.2")
