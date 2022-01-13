@@ -44,9 +44,10 @@
 ```
 
 - Redis Database를 사용하기 위해서 추가
-  ```
+```
   implementation("org.springframework.boot:spring-boot-starter-data-redis")
 ```
+
 - http call을 쉽게하기 위해서 추가
 ```
   implementation("com.squareup.retrofit2:retrofit:2.7.2")
