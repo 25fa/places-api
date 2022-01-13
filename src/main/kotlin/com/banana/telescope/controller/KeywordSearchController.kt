@@ -6,7 +6,6 @@ import com.banana.telescope.model.RecommendKeywordResponse
 import com.banana.telescope.service.KeywordRecommendService
 import com.banana.telescope.service.KeywordSearchService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.repository.query.ParameterOutOfBoundsException
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -22,14 +21,14 @@ class KeywordSearchController(
 
     @GetMapping("/v1/place/search")
     fun search(@RequestParam("keyword", required = true) keyword: String): PlaceResponse {
-        keyword.trimStart().trimEnd().let {
-            if(it.isEmpty()){
+        keyword.trimStart().trimEnd().let { it ->
+            if (it.isEmpty()) {
                 throw TelescopeRuntimeException.InvalidParameterException("'keyword' can not empty parameter.")
             }
-            keywordSearchService.search(it).let {
+            keywordSearchService.search(it).let { documentList ->
                 return PlaceResponse(
-                    total = it.size,
-                    documents = it
+                    total = documentList.size,
+                    documents = documentList
                 )
             }
         }
