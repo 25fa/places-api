@@ -1,6 +1,6 @@
 package com.banana.telescope.controller
 
-import com.banana.telescope.model.BasePlaceResponse
+import com.banana.telescope.model.PlaceResponse
 import com.banana.telescope.model.RecommendKeywordResponse
 import com.banana.telescope.service.KeywordRecommendService
 import com.banana.telescope.service.KeywordSearchService
@@ -19,8 +19,13 @@ class KeywordSearchController(
 
 
     @GetMapping("/v1/place/search")
-    fun search(@RequestParam("keyword") keyword: String): BasePlaceResponse {
-        return keywordSearchService.search(keyword)
+    fun search(@RequestParam("keyword") keyword: String): PlaceResponse {
+        keywordSearchService.search(keyword).let {
+            return PlaceResponse(
+                total = it.size,
+                documents = it
+            )
+        }
     }
 
     @GetMapping("/v1/place/search/recommend")

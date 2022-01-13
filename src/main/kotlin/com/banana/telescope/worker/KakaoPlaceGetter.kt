@@ -1,7 +1,7 @@
 package com.banana.telescope.worker
 
-import com.banana.telescope.model.BasePlaceResponse
 import com.banana.telescope.model.KakaoPlaceResponse
+import com.banana.telescope.model.PlaceDocument
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -10,7 +10,7 @@ class KakaoPlaceGetter(
     @Autowired
     private val kakaoApiCaller: KakaoApiCaller,
 ) {
-    fun get(keyword: String, size: Int): BasePlaceResponse {
+    fun get(keyword: String, size: Int): List<PlaceDocument> {
         val kakaoPlaceResponse = kakaoApiCaller.search(keyword, size)
         if (kakaoPlaceResponse != null) {
             return kakaoPlaceResponse.convert()
@@ -19,11 +19,11 @@ class KakaoPlaceGetter(
         throw Exception()
     }
 
-    private fun KakaoPlaceResponse.convert(): BasePlaceResponse {
-        val documents = mutableListOf<BasePlaceResponse.Document>()
+    private fun KakaoPlaceResponse.convert(): List<PlaceDocument> {
+        val documents = mutableListOf<PlaceDocument>()
         this.documents.forEach {
             documents.add(
-                BasePlaceResponse.Document(
+                PlaceDocument(
                     name = it.name,
                     url = it.url,
                     phone = it.phone,
@@ -34,10 +34,6 @@ class KakaoPlaceGetter(
                 )
             )
         }
-
-        return BasePlaceResponse(
-            total = this.meta.totalCount,
-            documents = documents
-        )
+        return documents
     }
 }

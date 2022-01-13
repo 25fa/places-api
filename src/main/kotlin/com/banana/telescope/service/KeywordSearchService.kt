@@ -1,7 +1,7 @@
 package com.banana.telescope.service
 
+import com.banana.telescope.model.PlaceDocument
 import com.banana.telescope.repository.RedisRepository
-import com.banana.telescope.model.BasePlaceResponse
 import com.banana.telescope.worker.KakaoPlaceGetter
 import com.banana.telescope.worker.NaverPlaceGetter
 import com.banana.telescope.worker.SimilarityWorker
@@ -21,17 +21,17 @@ class KeywordSearchService(
 ) {
     private val similarityWorker = SimilarityWorker()
 
-    fun search(keyword: String): BasePlaceResponse {
+    fun search(keyword: String): List<PlaceDocument> {
         redisRepository.insertOrIncrease(keyword)
 
-        val naverPlace = naverPlaceGetter.get(keyword)
-        val remainCount = BASE_COUNT - naverPlace.total
-        val kakaoPlace = kakaoPlaceGetter.get(keyword, remainCount)
-        val resultDocumentList = mutableListOf<BasePlaceResponse.Document>()
-        val kakaoDocumentList = mutableListOf<BasePlaceResponse.Document>()
-        val naverDocumentList = naverPlace.documents as MutableList
+        val naverDocumentList = naverPlaceGetter.get(keyword) as MutableList
+        val remainCount = BASE_COUNT - naverDocumentList.size
 
-        kakaoPlace.documents.forEach { kakaoDocument ->
+        val resultDocumentList = mutableListOf<PlaceDocument>()
+        val kakaoDocumentList = mutableListOf<PlaceDocument>()
+
+
+        kakaoPlaceGetter.get(keyword, remainCount).forEach { kakaoDocument ->
             naverDocumentList.find { naverDocument ->
                 naverDocument.compare(kakaoDocument)
             }?.let {
@@ -43,13 +43,10 @@ class KeywordSearchService(
         }
         resultDocumentList.addAll(kakaoDocumentList)
         resultDocumentList.addAll(naverDocumentList)
-        return BasePlaceResponse(
-            total = resultDocumentList.size,
-            documents = resultDocumentList
-        )
+        return resultDocumentList
     }
 
-    private fun BasePlaceResponse.Document.compare(target: BasePlaceResponse.Document): Boolean {
+    private fun PlaceDocument.compare(target: PlaceDocument): Boolean {
         if (this.name.compareName(target.name)) {
             if (this.address.compareAddress(target.address)) {
                 return comparePosition(this.x, this.y, target.x, target.y)

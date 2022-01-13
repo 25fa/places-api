@@ -1,7 +1,7 @@
 package com.banana.telescope.service
 
-import com.banana.telescope.repository.RedisRepository
 import com.banana.telescope.model.RecommendKeywordResponse
+import com.banana.telescope.repository.RedisRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

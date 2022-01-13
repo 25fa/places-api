@@ -1,7 +1,7 @@
 package com.banana.telescope.worker
 
-import com.banana.telescope.model.BasePlaceResponse
 import com.banana.telescope.model.NaverPlaceResponse
+import com.banana.telescope.model.PlaceDocument
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -12,7 +12,7 @@ class NaverPlaceGetter(
     @Autowired
     private val naverApiCaller: NaverApiCaller
 ) {
-    fun get(keyword: String): BasePlaceResponse {
+    fun get(keyword: String): List<PlaceDocument> {
         val naverPlaceResponse = naverApiCaller.search(keyword)
         if (naverPlaceResponse != null) {
             return naverPlaceResponse.convert()
@@ -21,12 +21,12 @@ class NaverPlaceGetter(
         throw Exception()
     }
 
-    private fun NaverPlaceResponse.convert(): BasePlaceResponse {
-        val documents = mutableListOf<BasePlaceResponse.Document>()
+    private fun NaverPlaceResponse.convert(): List<PlaceDocument> {
+        val documents = mutableListOf<PlaceDocument>()
         this.items.forEach {
             val coordinate = toWGS84(it.x.toDouble(), it.y.toDouble())
             documents.add(
-                BasePlaceResponse.Document(
+                PlaceDocument(
                     name = it.name.reformatName(),
                     url = it.url,
                     phone = it.phone,
@@ -37,11 +37,7 @@ class NaverPlaceGetter(
                 )
             )
         }
-
-        return BasePlaceResponse(
-            total = this.total,
-            documents = documents
-        )
+        return documents
     }
 
     private fun toWGS84(x: Double, y: Double): Pair<Double, Double> {
