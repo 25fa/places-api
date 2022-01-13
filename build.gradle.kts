@@ -28,11 +28,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
 	// https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
-	implementation("com.squareup.retrofit2:retrofit:2.7.2")
+	implementation("com.squareup.retrofit2:retrofit:2.9.0")
 	// https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
-	implementation("com.squareup.retrofit2:converter-gson:2.7.2")
+	implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+	implementation("junit:junit:4.13.2")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.mockk:mockk:1.12.1")
 }
 
 tasks.withType<KotlinCompile> {

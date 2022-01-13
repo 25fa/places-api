@@ -20,7 +20,7 @@ class NaverPlaceGetter(
                 return naverPlaceResponse.convert()
             }
             return listOf()
-        } catch (e: TelescopeRuntimeException.RemoteServerDownException){
+        } catch (e: TelescopeRuntimeException.RemoteServerDownException) {
             throw e
         }
     }
@@ -45,13 +45,16 @@ class NaverPlaceGetter(
     }
 
     private fun toWGS84(x: Double, y: Double): Pair<Double, Double> {
-        kakaoApiCaller.transcoord(x, y)?.let { response ->
-            response.documents[0].let {
-                return Pair(it.x.toDouble(), it.y.toDouble())
+        try {
+            kakaoApiCaller.transcoord(x, y)?.let { response ->
+                response.documents[0].let {
+                    return Pair(it.x.toDouble(), it.y.toDouble())
+                }
             }
+            return Pair(0.0, 0.0)
+        } catch (e: TelescopeRuntimeException.RemoteServerDownException) {
+            throw e
         }
-        //todo
-        throw Exception()
     }
 
     private fun reformatState(address: String): String {
