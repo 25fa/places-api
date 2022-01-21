@@ -1,30 +1,29 @@
 package com.banana.telescope.worker
 
 import com.banana.telescope.model.PlaceDocument
+import org.springframework.stereotype.Service
 import java.util.regex.Pattern
 import kotlin.math.abs
 
-class DocumentCompareWorker(
-    private val similarityWorker: SimilarityWorker
-) {
+@Service
+class DocumentCompareWorker {
     fun compare(source: PlaceDocument, target: PlaceDocument): Boolean {
-        if (source.name.compareName(target.name)) {
-            if (source.address.compareAddress(target.address)) {
+        if (compareName(source.name, target.name)) {
+            if (compareAddress(source.address, target.address)) {
                 return comparePosition(source.x, source.y, target.x, target.y)
             } else {
-                if (source.roadAddress.compareRoadAddress(target.roadAddress)) {
+                if (compareRoadAddress(source.roadAddress, target.roadAddress)) {
                     return comparePosition(source.x, source.y, target.x, target.y)
                 }
             }
         }
-
         return false
     }
 
-    private fun String.compareRoadAddress(target: String): Boolean {
-        this.getRoad()?.let { sourceAddress ->
-            target.getRoad()?.let { targetAddress ->
-                if (sourceAddress == targetAddress) {
+    private fun compareRoadAddress(source: String, target: String): Boolean {
+        getRoad(source)?.let { sourceRoad ->
+            getRoad(target)?.let { targetRoad ->
+                if (sourceRoad == targetRoad) {
                     return true
                 }
             }
@@ -32,10 +31,10 @@ class DocumentCompareWorker(
         return false
     }
 
-    private fun String.compareAddress(target: String): Boolean {
-        this.getTown()?.let { sourceAddress ->
-            target.getTown()?.let { targetAddress ->
-                if (sourceAddress == targetAddress) {
+    private fun compareAddress(source: String, target: String): Boolean {
+        getTown(source)?.let { sourceTown ->
+            getTown(target)?.let { targetTown ->
+                if (sourceTown == targetTown) {
                     return true
                 }
             }
@@ -43,27 +42,8 @@ class DocumentCompareWorker(
         return false
     }
 
-    private fun String.getRoad(): String? {
-        val regex = "([가-힣0-9]{1,8}([길로]) ([0-9-]{0,5})?)"
-        val matcher = Pattern.compile(regex).matcher(this)
-        while (matcher.find()) {
-            return matcher.group(1)
-        }
-        return null
-    }
-
-    private fun String.getTown(): String? {
-        val regex = "([가-힣0-9]{1,8}([동리]) ([0-9-]{0,5})?)"
-        val matcher = Pattern.compile(regex).matcher(this)
-        while (matcher.find()) {
-            return matcher.group(1)
-        }
-        return null
-    }
-
-
-    private fun String.compareName(target: String): Boolean {
-        if (similarityWorker.similarity(this, target) > NAME_SIMILARITY_RATE) {
+    private fun compareName(source: String, target: String): Boolean {
+        if (SimilarityWorker.similarity(source, target) > NAME_SIMILARITY_RATE) {
             return true
         }
         return false
@@ -76,6 +56,24 @@ class DocumentCompareWorker(
             }
         }
         return false
+    }
+
+    private fun getRoad(address: String): String? {
+        val regex = "([가-힣0-9]{1,8}([길로]) ([0-9-]{0,5})?)"
+        val matcher = Pattern.compile(regex).matcher(address)
+        while (matcher.find()) {
+            return matcher.group(1)
+        }
+        return null
+    }
+
+    private fun getTown(address: String): String? {
+        val regex = "([가-힣0-9]{1,8}([동리]) ([0-9-]{0,5})?)"
+        val matcher = Pattern.compile(regex).matcher(address)
+        while (matcher.find()) {
+            return matcher.group(1)
+        }
+        return null
     }
 
     companion object {
