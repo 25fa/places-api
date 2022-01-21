@@ -8,7 +8,6 @@ import com.banana.telescope.repository.RecommendRepository
 import com.banana.telescope.worker.DocumentCompareWorker
 import com.banana.telescope.worker.KakaoPlaceGetter
 import com.banana.telescope.worker.NaverPlaceGetter
-import com.banana.telescope.worker.SimilarityWorker
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,9 +22,10 @@ class KeywordSearchService(
     @Autowired
     private val recommendRepository: RecommendRepository,
     @Autowired
-    private val placeCacheRepository: PlaceCacheRepository
+    private val placeCacheRepository: PlaceCacheRepository,
+    @Autowired
+    private val documentCompareWorker: DocumentCompareWorker
 ) {
-    private val documentCompareWorker = DocumentCompareWorker(SimilarityWorker())
     private val logger: Logger = LoggerFactory.getLogger(this.javaClass)
 
     fun search(keyword: String): List<PlaceDocument> {
