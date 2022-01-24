@@ -1,9 +1,9 @@
 package com.banana.telescope.controller
 
 import com.banana.telescope.exception.TelescopeRuntimeException
-import com.banana.telescope.model.PlaceDocument
-import com.banana.telescope.service.KeywordRecommendService
-import com.banana.telescope.service.KeywordSearchService
+import com.banana.telescope.service.keyword.model.PlaceDocument
+import com.banana.telescope.service.keyword.KeywordRecommendService
+import com.banana.telescope.service.keyword.KeywordSearchService
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs

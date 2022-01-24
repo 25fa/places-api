@@ -2,9 +2,9 @@ package com.banana.telescope.controller
 
 import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.PlaceResponse
-import com.banana.telescope.model.RecommendKeywordResponse
-import com.banana.telescope.service.KeywordRecommendService
-import com.banana.telescope.service.KeywordSearchService
+import com.banana.telescope.service.keyword.response.RecommendKeywordsResponse
+import com.banana.telescope.service.keyword.KeywordRecommendService
+import com.banana.telescope.service.keyword.KeywordSearchService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class KeywordSearchController(
-    @Autowired
+        @Autowired
     val keywordSearchService: KeywordSearchService,
-    @Autowired
+        @Autowired
     val keywordRecommendService: KeywordRecommendService
 ) {
 
@@ -35,7 +35,7 @@ class KeywordSearchController(
     }
 
     @GetMapping("/v1/place/search/recommend")
-    fun recommend(): RecommendKeywordResponse {
+    fun recommend(): RecommendKeywordsResponse {
         return keywordRecommendService.recommend()
     }
 }

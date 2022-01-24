@@ -1,6 +1,6 @@
 package com.banana.telescope.worker
 
-import com.banana.telescope.model.PlaceDocument
+import com.banana.telescope.service.keyword.model.PlaceDocument
 import org.springframework.stereotype.Service
 import java.util.regex.Pattern
 import kotlin.math.abs
