@@ -1,8 +1,8 @@
-package com.banana.telescope.service.search.response
+package com.banana.telescope.controller.response
 
 import com.banana.telescope.service.search.model.PlaceDocument
 
-data class PlaceDocumentsResponse(
+data class PlacesResponse(
     val total: Int,
     val documents: List<PlaceDocument>
 )

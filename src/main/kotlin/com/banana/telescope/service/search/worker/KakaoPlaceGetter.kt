@@ -1,15 +1,15 @@
 package com.banana.telescope.service.search.worker
 
 import com.banana.telescope.exception.TelescopeRuntimeException
-import com.banana.telescope.model.KakaoPlaceResponse
+import com.banana.telescope.rest.response.KakaoPlaceResponse
 import com.banana.telescope.service.search.model.PlaceDocument
-import com.banana.telescope.worker.rest.KakaoApiCaller
+import com.banana.telescope.rest.service.KakaoApiCaller
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class KakaoPlaceGetter(
-        @Autowired
+    @Autowired
     private val kakaoApiCaller: KakaoApiCaller,
 ) {
 

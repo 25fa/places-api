@@ -1,10 +1,9 @@
-package com.banana.telescope.worker.rest
+package com.banana.telescope.rest.service
 
 import com.banana.telescope.exception.TelescopeRuntimeException
-import com.banana.telescope.model.KakaoPlaceResponse
-import com.banana.telescope.model.KakaoTranscoordResponse
-import com.banana.telescope.worker.rest.retrofit2.KakaoApis
-import com.banana.telescope.worker.rest.retrofit2.RetrofitClientBuilder
+import com.banana.telescope.rest.response.KakaoPlaceResponse
+import com.banana.telescope.rest.response.KakaoTranscoordResponse
+import com.banana.telescope.rest.retrofit2.RetrofitClientBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import javax.annotation.PostConstruct

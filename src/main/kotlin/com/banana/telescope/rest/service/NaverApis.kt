@@ -1,6 +1,6 @@
-package com.banana.telescope.worker.rest.retrofit2
+package com.banana.telescope.rest.service
 
-import com.banana.telescope.model.NaverPlaceResponse
+import com.banana.telescope.rest.response.NaverPlaceResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

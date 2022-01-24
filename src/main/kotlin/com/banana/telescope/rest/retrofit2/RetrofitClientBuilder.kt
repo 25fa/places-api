@@ -1,4 +1,4 @@
-package com.banana.telescope.worker.rest.retrofit2
+package com.banana.telescope.rest.retrofit2
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

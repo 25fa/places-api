@@ -1,4 +1,4 @@
-package com.banana.telescope.config
+package com.banana.telescope.database.config
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean

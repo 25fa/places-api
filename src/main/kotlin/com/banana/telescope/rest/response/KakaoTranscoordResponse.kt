@@ -1,4 +1,4 @@
-package com.banana.telescope.model
+package com.banana.telescope.rest.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,5 +1,6 @@
-package com.banana.telescope.worker
+package com.banana.telescope.service.search.worker
 
+import com.banana.telescope.common.SimilarityWorker
 import com.banana.telescope.service.search.model.PlaceDocument
 import org.springframework.stereotype.Service
 import java.util.regex.Pattern

@@ -1,18 +1,18 @@
 package com.banana.telescope.service.search.worker
 
 import com.banana.telescope.exception.TelescopeRuntimeException
-import com.banana.telescope.model.NaverPlaceResponse
+import com.banana.telescope.rest.response.NaverPlaceResponse
 import com.banana.telescope.service.search.model.PlaceDocument
-import com.banana.telescope.worker.rest.KakaoApiCaller
-import com.banana.telescope.worker.rest.NaverApiCaller
+import com.banana.telescope.rest.service.KakaoApiCaller
+import com.banana.telescope.rest.service.NaverApiCaller
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class NaverPlaceGetter(
-        @Autowired
+    @Autowired
     private val kakaoApiCaller: KakaoApiCaller,
-        @Autowired
+    @Autowired
     private val naverApiCaller: NaverApiCaller
 ) {
     fun get(keyword: String): List<PlaceDocument> {

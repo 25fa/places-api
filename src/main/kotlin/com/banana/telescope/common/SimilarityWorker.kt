@@ -1,4 +1,4 @@
-package com.banana.telescope.worker
+package com.banana.telescope.common
 
 class SimilarityWorker {
     companion object {

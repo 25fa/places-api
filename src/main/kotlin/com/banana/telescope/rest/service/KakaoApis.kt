@@ -1,7 +1,7 @@
-package com.banana.telescope.worker.rest.retrofit2
+package com.banana.telescope.rest.service
 
-import com.banana.telescope.model.KakaoPlaceResponse
-import com.banana.telescope.model.KakaoTranscoordResponse
+import com.banana.telescope.rest.response.KakaoPlaceResponse
+import com.banana.telescope.rest.response.KakaoTranscoordResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

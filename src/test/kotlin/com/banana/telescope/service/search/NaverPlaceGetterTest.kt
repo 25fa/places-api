@@ -1,10 +1,10 @@
-package com.banana.telescope.worker
+package com.banana.telescope.service.search
 
-import com.banana.telescope.model.KakaoTranscoordResponse
-import com.banana.telescope.model.NaverPlaceResponse
+import com.banana.telescope.rest.response.KakaoTranscoordResponse
+import com.banana.telescope.rest.response.NaverPlaceResponse
 import com.banana.telescope.service.search.worker.NaverPlaceGetter
-import com.banana.telescope.worker.rest.KakaoApiCaller
-import com.banana.telescope.worker.rest.NaverApiCaller
+import com.banana.telescope.rest.service.KakaoApiCaller
+import com.banana.telescope.rest.service.NaverApiCaller
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs

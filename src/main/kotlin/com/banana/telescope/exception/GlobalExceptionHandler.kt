@@ -1,6 +1,5 @@
 package com.banana.telescope.exception
 
-import com.banana.telescope.model.ErrorResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.ServletRequestBindingException
@@ -13,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException
 class GlobalExceptionHandler {
     @ExceptionHandler(ResponseStatusException::class)
     protected fun handleResponseStatusException(e: ResponseStatusException): ResponseEntity<ErrorResponse> {
-        val response: ErrorResponse = ErrorResponse(
+        val response = ErrorResponse(
             reason = e.reason!!,
             status = e.status.value(),
             error = e.status.name
@@ -23,7 +22,7 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(ServletRequestBindingException::class)
     protected fun handleServletRequestBindingException(e: ServletRequestBindingException): ResponseEntity<ErrorResponse> {
-        val response: ErrorResponse = ErrorResponse(
+        val response = ErrorResponse(
             reason = e.localizedMessage,
             status = 400,
             error = HttpStatus.BAD_REQUEST.name
@@ -33,7 +32,7 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception::class)
     protected fun handleException(e: Exception): ResponseEntity<ErrorResponse> {
-        val response: ErrorResponse = ErrorResponse(
+        val response = ErrorResponse(
             reason = e.localizedMessage,
             status = 500,
             error = HttpStatus.INTERNAL_SERVER_ERROR.name

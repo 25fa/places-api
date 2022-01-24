@@ -1,4 +1,4 @@
-package com.banana.telescope.worker
+package com.banana.telescope.common
 
 import org.junit.Assert
 import org.junit.Test

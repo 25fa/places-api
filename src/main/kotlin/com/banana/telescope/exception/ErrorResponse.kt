@@ -1,4 +1,4 @@
-package com.banana.telescope.model
+package com.banana.telescope.exception
 
 data class ErrorResponse(
     val status: Int,

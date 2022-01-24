@@ -1,5 +1,6 @@
-package com.banana.telescope.worker
+package com.banana.telescope.service.search
 
+import com.banana.telescope.service.search.worker.DocumentCompareWorker
 import org.junit.Assert
 import org.junit.Test
 

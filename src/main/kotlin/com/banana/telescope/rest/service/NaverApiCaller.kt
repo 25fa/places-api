@@ -1,9 +1,8 @@
-package com.banana.telescope.worker.rest
+package com.banana.telescope.rest.service
 
 import com.banana.telescope.exception.TelescopeRuntimeException
-import com.banana.telescope.model.NaverPlaceResponse
-import com.banana.telescope.worker.rest.retrofit2.NaverApis
-import com.banana.telescope.worker.rest.retrofit2.RetrofitClientBuilder
+import com.banana.telescope.rest.response.NaverPlaceResponse
+import com.banana.telescope.rest.retrofit2.RetrofitClientBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import javax.annotation.PostConstruct
