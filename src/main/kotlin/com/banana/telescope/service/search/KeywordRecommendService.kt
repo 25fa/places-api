@@ -1,6 +1,6 @@
-package com.banana.telescope.service.keyword
+package com.banana.telescope.service.search
 
-import com.banana.telescope.service.keyword.response.RecommendKeywordsResponse
+import com.banana.telescope.service.search.response.RecommendKeywordsResponse
 import com.banana.telescope.database.repository.RecommendRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

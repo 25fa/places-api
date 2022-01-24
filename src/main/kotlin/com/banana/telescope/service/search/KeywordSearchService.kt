@@ -1,14 +1,14 @@
-package com.banana.telescope.service.keyword
+package com.banana.telescope.service.search
 
 import com.banana.telescope.database.entity.PlaceEntity
 import com.banana.telescope.database.repository.PlaceCacheRepository
 import com.banana.telescope.database.repository.RecommendRepository
 import com.banana.telescope.exception.TelescopeRuntimeException
-import com.banana.telescope.service.keyword.model.PlaceDocument
-import com.banana.telescope.service.keyword.response.PlaceDocumentsResponse
+import com.banana.telescope.service.search.model.PlaceDocument
+import com.banana.telescope.service.search.response.PlaceDocumentsResponse
 import com.banana.telescope.worker.DocumentCompareWorker
-import com.banana.telescope.service.keyword.worker.KakaoPlaceGetter
-import com.banana.telescope.service.keyword.worker.NaverPlaceGetter
+import com.banana.telescope.service.search.worker.KakaoPlaceGetter
+import com.banana.telescope.service.search.worker.NaverPlaceGetter
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,8 +1,8 @@
-package com.banana.telescope.service.keyword.worker
+package com.banana.telescope.service.search.worker
 
 import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.NaverPlaceResponse
-import com.banana.telescope.service.keyword.model.PlaceDocument
+import com.banana.telescope.service.search.model.PlaceDocument
 import com.banana.telescope.worker.rest.KakaoApiCaller
 import com.banana.telescope.worker.rest.NaverApiCaller
 import org.springframework.beans.factory.annotation.Autowired

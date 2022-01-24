@@ -1,6 +1,6 @@
 package com.banana.telescope.database.entity
 
-import com.banana.telescope.service.keyword.model.PlaceDocument
+import com.banana.telescope.service.search.model.PlaceDocument
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 

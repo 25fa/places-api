@@ -2,9 +2,9 @@ package com.banana.telescope.controller
 
 import com.banana.telescope.exception.TelescopeRuntimeException
 import com.banana.telescope.model.PlaceResponse
-import com.banana.telescope.service.keyword.response.RecommendKeywordsResponse
-import com.banana.telescope.service.keyword.KeywordRecommendService
-import com.banana.telescope.service.keyword.KeywordSearchService
+import com.banana.telescope.service.search.response.RecommendKeywordsResponse
+import com.banana.telescope.service.search.KeywordRecommendService
+import com.banana.telescope.service.search.KeywordSearchService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
