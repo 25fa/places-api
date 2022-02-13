@@ -1,4 +1,4 @@
-# Places Api Server 
+# Places API Server 
 - kako, naver places api result merge (kakao bank 사전과제)
 
 ## 실행방법
