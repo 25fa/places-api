@@ -1,4 +1,4 @@
-# 위치 검색 result merge(kako, naver) - kakao bank 사전과제
+# Places Api Server - kako, naver places api result merge (kakao bank 사전과제)
 
 ## 실행방법
   1. 프로젝트 폴더에서 아래 명령어 수행
